@@ -2,10 +2,20 @@
 // read and save the POST variable
 
 
-
+$search = $_POST['val'];
 $file = fopen("words_alpha.txt", "r") or die("Unable to open file!");
+$matches = [];
 
 
+while(!feof($file)) {
+    $currentWord = fgets($file);
+
+    if (stripos($currentWord, $search)) {
+        $matches[] = $currentWord . '\n';
+    }
+}
+
+echo var_dump($matches);
 // initiate new empty array $matches
 
 
@@ -24,5 +34,5 @@ fclose($file);
 
 
 // return result as JSON
-echo json_encode($matches);
-?>
+
+#echo json_encode($matches);

@@ -7,11 +7,12 @@ window.addEventListener('load', () => {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // parse response into JSON object
+                console.log(this.responseText)
                 let answer = JSON.parse(this.responseText);
 
                 // generate html output
                 let answer_html = "";
-                for (value of answer) {
+                for (let value of answer) {
                     // create html code and save it in answer_html
                     console.log(value); // test purpose
                 }
